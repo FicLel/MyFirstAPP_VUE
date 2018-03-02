@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Curso-vue 2</title>
+	<style type="text/css">
+		.like{
+			background: green;
+			color: white;
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		{{texto}}
+	</div>
+
+	<div id="tercera">
+		{{texto}}
+	</div>
+
+<hr/>
+
+	<main>
+	<!-- Si quiero traer el template desde el js, solo hay que agregar a una lado inline-template
+		Esto nos permitira trabajar con la plantillla de componente afuera  -->
+		<frutas :objeto="superfruta"></frutas>
+
+		<peliculas></peliculas>
+
+		
+		<hr/>
+		<!-- Listado deste API Rest Falsa con ajax -->
+		
+		<h1>Listado por Ajax</h1>
+			<ol v-if="posts">
+				<li v-for="(post, index) in posts">
+					{{post.title}}
+				</li>
+			</ol>
+			<span v-else>CARGANDO</span>
+
+		<hr/>
+
+		<!-- Interpolación -->
+		<h1>{{ texto }}</h1>
+		<h2 v-text="texto"></h2>
+		<hr/>
+		<!-- two way data binding -->
+		
+		<input type="text" v-model="nombre"/>
+		<p>Mi nombre es: {{nombre}}</p>
+		<hr/>
+		<!-- Directiva condicional -->
+		<input type="text" v-model="nota">
+		<strong v-if="nota && nota >= 6">Aprobado</strong>
+		<span v-else>Surrada</span>
+		<hr/>
+		<!-- ciclos -->
+		<!-- Array -->
+		<ol>
+			<li v-for="cosa in cosas">{{ cosa }}</li>
+		</ol>
+		
+		<hr/>
+		<!-- Array de objetos -->
+		<ul>
+			<!-- puede ser v-bind:class o :class pero prefiero v-bind porque no me cambia el color de los demás atributos
+			esto se le conoce como ng-class en angular, todo esto es para agregar clases con condicionales -->
+			<li @click="marcar(index)" v-bind:class="{like: index == confirmado}" v-for="(fruta, index) in frutas">
+				{{index}}:{{fruta.nombre}} - {{fruta.temporada}}
+			</li>
+		</ul>
+		<!-- Objeto -->
+		<ul>
+			<li v-for="(value, key, index) in superfruta">
+				{{index}}:{{key}} - {{value}}
+			</li>
+		</ul>
+		<hr/>
+		<!-- Eventos -->
+		<!-- <button v-on:click="crearCosa()">Crear Cosa</button>
+		<button @click="borrarCosa()" >Eliminar Cosa</button> -->
+		<br/>
+		<br/>
+		<form @submit.prevent="crearCosa()">
+			<input type="text" v-model="cosaNueva"/>
+			<input type="submit" value="Guardar cosa"/> 
+		</form>
+		<h4>Lista trabajando</h4>
+		<li v-for="(cosa, index) in cosas">{{cosa}} <button @click="borrarCosa(index)" >Eliminar Cosa</button></li>
+
+		<!-- Métodos computados -->
+		<h1>{{nombreYapellido}}</h1>
+		<ol>
+			<li v-for="(cosa,index) in ordenarCosas">{{cosa}}</li>
+		</ol>
+		<hr/>
+		<!-- Filtros -->
+		<input type="search" v-model="busqueda" />
+		<ul>
+			<li v-for="(fruta, index) in buscarFrutas">
+			{{fruta.nombre | Mayusculas}}
+			</li>
+		</ul>
+		<hr/>
+	</main>
+
+	<!-- https://cdn.jsdelivr.net/npm/vue@2.5.11/dist/vue.js Url vue.js -->
+	<script type="text/javascript" src="js/vue.js"></script>
+	<!-- https://github.com/axios/axios Paquetes de Axios para Ajax -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	
+</body>
+</html>
