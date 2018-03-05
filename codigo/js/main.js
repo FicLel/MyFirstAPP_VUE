@@ -29,6 +29,7 @@ Vue.component('peliculas', {
 	}
 	});
 
+
 Vue.component('frutas', {
 	props: ['objeto'],
 	template: `
@@ -41,11 +42,24 @@ Vue.component('frutas', {
 		console.log(this.objeto)
 	}
 	});
-vue.component('padre',{
-	template: `
-		
-	`
-});
+Vue.component('padre', {
+	template: `<div>
+	<h1>Componente padre</h1>
+	<div>
+		<hijo></hijo>
+	</div>
+	</div>
+	`,
+	});
+
+Vue.component('hijo', {
+	template: `<p style="background: yellow;">
+	Soy un parrafo en el componente hijo</p>`,
+	});
+
+
+
+
 
 
 //Este es un filtro global 

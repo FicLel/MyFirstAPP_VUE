@@ -25,6 +25,8 @@
 	<main>
 	<!-- Si quiero traer el template desde el js, solo hay que agregar a una lado inline-template
 		Esto nos permitira trabajar con la plantillla de componente afuera  -->
+		<padre></padre>
+		<hr>
 		<frutas :objeto="superfruta"></frutas>
 
 		<peliculas></peliculas>
