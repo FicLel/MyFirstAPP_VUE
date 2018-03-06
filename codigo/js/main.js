@@ -74,6 +74,7 @@ new Vue({
 		});
 	},
 	data: { //data es donde mantenmos nuestros objetos
+		elegido: 'peliculas',
 		texto: 'Hola mundo soy Fic',
 		nombre: 'Victor',
 		apellido: 'Leal',
