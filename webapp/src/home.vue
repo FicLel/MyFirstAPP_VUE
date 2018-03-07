@@ -1,3 +1,15 @@
 <template>
-	<h2>Esto es la home</h2>	
+	<h2>Esto es la {{texto}}</h2>	
 </template>
+
+
+<script>
+export default {
+  name: 'home',
+  data () {
+    return {
+      texto: 'pagina home'
+    }
+  }
+}
+</script>
