@@ -3,14 +3,16 @@
     <img src="./assets/logo.png">
     <h2>{{msg}}</h2>
     <ul>
-      <li><a href="https://vuejs.org" target="_blank">Home</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Restaurantes</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Contacto</a></li>
-      <li><a href="www.ministrarweb.com" target="_blank">Restaurante destacado</a></li>
+      <li><router-link to="/home">Home</router-link></li>
+      <li><router-link to="/restauranteList">Restaurantes</router-link></li>
+      <li><router-link to="/contacto">Contacto</router-link></li>
+      <li><router-link :to="{name: 'restauranteDestacado', params: {id:1}}">Restaurante destacado</router-link></li>
     </ul>
+
+    <router-view></router-view>
     <!-- Cargando componente --> 
-    <home></home>
-    <contacto></contacto>
+    <!-- <home></home>
+    <contacto></contacto> -->
 
 
   </div>
